@@ -1,2 +1,2 @@
 # Portfolio
-Portfolio Webseite if myself
+Portfolio Webseite of myself for my internships 
