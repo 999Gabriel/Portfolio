@@ -24,6 +24,11 @@ body {
     overflow-x: hidden;
 }
 
+/* Prevent scrolling when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
 /* Optimize animations for smoother performance */
 .container, .hero-content, .about-images, .portfolio-item, .company-detail {
     will-change: transform, opacity;
@@ -219,7 +224,7 @@ header {
     width: 100%;
     z-index: 1000;
     padding: 30px 0;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
 header.scrolled {
@@ -281,6 +286,57 @@ nav {
     width: 100%;
 }
 
+/* Mobile menu button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+    width: 30px;
+    height: 20px;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn span:nth-child(1) {
+    top: 0;
+}
+
+.mobile-menu-btn span:nth-child(2) {
+    top: 9px;
+}
+
+.mobile-menu-btn span:nth-child(3) {
+    top: 18px;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 9px;
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 9px;
+}
+
 .nav-logo {
     font-size: 1.5rem;
     letter-spacing: 2px;
@@ -307,6 +363,16 @@ nav {
 .github-link svg {
     width: 18px;
     height: 18px;
+}
+
+.desktop-only {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
 }
 
 /* Hero Section - Angepasst wie im Screenshot */
@@ -905,9 +971,36 @@ footer p {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    :root {
+        --container-width: 95%;
+    }
+    
+    h1 {
+        font-size: 6rem;
+    }
+    
+    .nav-left, .nav-right {
+        gap: 30px;
+    }
+    
+    .nav-logo {
+        margin: 0 40px;
+    }
+}
+
 @media (max-width: 992px) {
+    :root {
+        --section-spacing: 100px;
+    }
+    
     h1 {
         font-size: 5rem;
+    }
+    
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
     }
     
     .company-detail,
@@ -927,24 +1020,96 @@ footer p {
     .about-images {
         height: 400px;
         margin: 0 auto;
+        max-width: 500px;
     }
     
     .contact-box {
         padding: 40px 20px;
     }
+    
+    .nav-left, .nav-right {
+        gap: 25px;
+    }
+    
+    .nav-logo {
+        margin: 0 30px;
+        font-size: 1.3rem;
+    }
+    
+    .github-link {
+        right: 15px;
+        font-size: 0.8rem;
+    }
+    
+    .github-link svg {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 @media (max-width: 768px) {
+    :root {
+        --section-spacing: 80px;
+    }
+    
+    body {
+        font-size: 0.95rem;
+    }
+    
     h1 {
         font-size: 3.5rem;
     }
     
     h2 {
         font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    h3 {
+        font-size: 1.6rem;
+    }
+    
+    /* Mobile navigation */
+    .mobile-menu-btn {
+        display: block;
     }
     
     .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: left 0.3s ease;
+        mix-blend-mode: normal;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-left, .nav-right {
+        flex-direction: column;
         gap: 30px;
+        margin: 20px 0;
+    }
+    
+    .nav-logo {
+        margin: 30px 0;
+        font-size: 1.8rem;
+    }
+    
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+    
+    .github-link {
+        position: static;
+        margin-top: 30px;
     }
     
     .company-logos {
@@ -953,20 +1118,76 @@ footer p {
     
     .portfolio-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
     
     .about-images {
         height: 350px;
     }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .tech-stack-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --section-spacing: 70px;
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-content h1 {
+        font-size: 3.2rem;
+    }
+    
+    .company-card {
+        padding: 30px 20px;
+    }
+    
+    .company-content h3 {
+        font-size: 1.8rem;
+    }
+    
+    .company-logo {
+        width: 150px;
+        height: 150px;
+    }
 }
 
 @media (max-width: 480px) {
+    :root {
+        --section-spacing: 60px;
+    }
+    
     h1 {
         font-size: 2.5rem;
     }
     
-    .nav-links {
-        gap: 20px;
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    h3 {
+        font-size: 1.4rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
     }
     
     .nav-links a {
@@ -1182,5 +1403,328 @@ footer p {
 @media (max-width: 480px) {
     .about-images {
         height: 300px;
+    }
+}
+
+/* Additional Responsive Design Adjustments */
+
+/* General adjustments for smaller screens */
+@media (max-width: 768px) {
+    :root {
+        --section-spacing: 80px; /* Reduce section spacing */
+    }
+
+    body {
+        font-size: 0.95rem; /* Adjust base font size */
+    }
+
+    .container {
+        padding: 0 15px; /* Reduce container padding */
+    }
+    
+    /* Improve image responsiveness */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Adjust hero section for mobile */
+    .hero-section {
+        height: 90vh;
+        background-position: center center;
+    }
+    
+    /* Make sure all containers are properly sized */
+    .container {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Ensure touch targets are large enough */
+    button, .btn, .nav-links a {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 3rem; /* Adjust H1 for mobile */
+    }
+
+    h2 {
+        font-size: 2rem; /* Adjust H2 for mobile */
+        margin-bottom: 40px;
+    }
+
+    h3 {
+        font-size: 1.5rem; /* Adjust H3 for mobile */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Hide off-screen initially */
+        width: 100%;
+        height: 100vh;
+        background-color: var(--bg-light);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: left 0.3s ease-in-out;
+        z-index: 1000; /* Ensure nav is on top */
+    }
+
+    .nav-links.active {
+        left: 0; /* Slide in when active */
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+        margin: 15px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+        z-index: 1001; /* Ensure toggle is above nav */
+    }
+
+    .hero-section {
+        height: auto; /* Adjust hero height for content */
+        padding: 100px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .companies-grid {
+        gap: 20px;
+    }
+
+    .company-card {
+        padding: 30px;
+    }
+
+    .company-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .company-content p {
+        font-size: 1rem;
+    }
+
+    .company-logo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-images {
+        height: auto;
+        max-height: 350px;
+    }
+
+    .image-main, .image-secondary {
+        max-width: 100%;
+        position: relative;
+        transform: none !important; /* Reset transforms for stacked layout */
+        margin-bottom: 20px;
+    }
+
+    .image-main {
+        top: auto; right: auto;
+    }
+    .image-secondary {
+        bottom: auto; left: auto;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Stack portfolio items */
+        gap: 30px;
+    }
+
+    .portfolio-item img {
+        height: 180px;
+    }
+
+    .contact-section .container {
+        padding: 40px 20px;
+    }
+
+    .contact-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .tech-stack-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 20px;
+    }
+
+    .tech-item img {
+        height: 40px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --section-spacing: 60px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .company-card {
+        padding: 20px;
+    }
+
+    .company-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .company-content p {
+        font-size: 0.9rem;
+    }
+
+    .company-logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .about-images {
+        height: 280px;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-stack-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .tech-item img {
+        height: 40px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Extra small devices (iPhone SE, etc) */
+@media (max-width: 375px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+    }
+    
+    .nav-logo {
+        font-size: 1.4rem;
+    }
+    
+    .company-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .about-images {
+        height: 240px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+}
+    .social-links {
+        gap: 20px;
+    }
+
+    .start-btn {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+    }
+
+    .footer-logo {
+        font-size: 1.2rem;
+    }
+
+    .footer-links a {
+        font-size: 0.75rem;
+    }
+
+    .footer-social a {
+        font-size: 1rem; /* Adjust icon size if needed */
+    }
+
+    footer p {
+        font-size: 0.75rem;
+    }
+
+
+/* Ensure proper spacing at the bottom of the page */
+footer {
+    margin-top: 40px;
+}
+
+/* Fix for iOS devices to handle fixed positioning better */
+@supports (-webkit-touch-callout: none) {
+    .nav-links.active {
+        position: absolute;
+        height: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    header.scrolled {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
     }
 }
