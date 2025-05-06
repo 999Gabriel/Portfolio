@@ -77,6 +77,28 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', handleHeaderScroll);
     handleHeaderScroll(); // Initial check
     
+    // Mobile menu toggle functionality
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        });
+        
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+                body.classList.remove('menu-open');
+            });
+        });
+    }
+    
     // Keyboard shortcut for contact
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {

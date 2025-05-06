@@ -238,7 +238,7 @@ nav {
     align-items: center;
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 0px;
     position: relative;
     z-index: 10;
 }
@@ -492,7 +492,7 @@ nav {
     .company-content h3 {
         font-size: 2.2rem;
     }
-    
+
     .company-logo {
         width: 240px;
         height: 240px;
@@ -504,13 +504,13 @@ nav {
         flex-direction: column-reverse;
         padding: 40px;
     }
-    
+
     .company-content {
         padding-right: 0;
         padding-top: 40px;
         text-align: center;
     }
-    
+
     .company-logo {
         width: 200px;
         height: 200px;
@@ -523,7 +523,7 @@ nav {
         font-size: 2.5rem;
         margin-bottom: 40px;
     }
-    
+
     .company-content h3 {
         font-size: 1.8rem;
     }
@@ -811,7 +811,7 @@ footer p {
     .contact-section .container {
         padding: 40px 20px;
     }
-    
+
     .contact-content h3 {
         font-size: 1.5rem;
     }
@@ -975,15 +975,15 @@ footer p {
     :root {
         --container-width: 95%;
     }
-    
+
     h1 {
         font-size: 6rem;
     }
-    
+
     .nav-left, .nav-right {
         gap: 30px;
     }
-    
+
     .nav-logo {
         margin: 0 40px;
     }
@@ -993,54 +993,54 @@ footer p {
     :root {
         --section-spacing: 100px;
     }
-    
+
     h1 {
         font-size: 5rem;
     }
-    
+
     h2 {
         font-size: 2.2rem;
         margin-bottom: 40px;
     }
-    
+
     .company-detail,
     .about-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .company-detail.reverse {
         direction: ltr;
     }
-    
+
     .company-image {
         order: -1;
     }
-    
+
     .about-images {
         height: 400px;
         margin: 0 auto;
         max-width: 500px;
     }
-    
+
     .contact-box {
         padding: 40px 20px;
     }
-    
+
     .nav-left, .nav-right {
         gap: 25px;
     }
-    
+
     .nav-logo {
         margin: 0 30px;
         font-size: 1.3rem;
     }
-    
+
     .github-link {
         right: 15px;
         font-size: 0.8rem;
     }
-    
+
     .github-link svg {
         width: 16px;
         height: 16px;
@@ -1051,29 +1051,29 @@ footer p {
     :root {
         --section-spacing: 80px;
     }
-    
+
     body {
         font-size: 0.95rem;
     }
-    
+
     h1 {
         font-size: 3.5rem;
     }
-    
+
     h2 {
         font-size: 2rem;
         margin-bottom: 30px;
     }
-    
+
     h3 {
         font-size: 1.6rem;
     }
-    
+
     /* Mobile navigation */
     .mobile-menu-btn {
         display: block;
     }
-    
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -1086,49 +1086,50 @@ footer p {
         align-items: center;
         transition: left 0.3s ease;
         mix-blend-mode: normal;
+        z-index: 1000; /* Ensure proper stacking */
     }
-    
+
     .nav-links.active {
         left: 0;
     }
-    
+
     .nav-left, .nav-right {
         flex-direction: column;
         gap: 30px;
         margin: 20px 0;
     }
-    
+
     .nav-logo {
         margin: 30px 0;
         font-size: 1.8rem;
     }
-    
+
     .nav-links a {
         font-size: 1.2rem;
     }
-    
+
     .github-link {
         position: static;
         margin-top: 30px;
     }
-    
+
     .company-logos {
         gap: 30px;
     }
-    
+
     .portfolio-grid {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
+
     .about-images {
         height: 350px;
     }
-    
+
     .skills-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
-    
+
     .tech-stack-grid {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
@@ -1138,31 +1139,31 @@ footer p {
     :root {
         --section-spacing: 70px;
     }
-    
+
     h1 {
         font-size: 3rem;
     }
-    
+
     h2 {
         font-size: 1.8rem;
     }
-    
+
     .container {
         padding: 0 15px;
     }
-    
+
     .hero-content h1 {
         font-size: 3.2rem;
     }
-    
+
     .company-card {
         padding: 30px 20px;
     }
-    
+
     .company-content h3 {
         font-size: 1.8rem;
     }
-    
+
     .company-logo {
         width: 150px;
         height: 150px;
@@ -1173,36 +1174,36 @@ footer p {
     :root {
         --section-spacing: 60px;
     }
-    
+
     h1 {
         font-size: 2.5rem;
     }
-    
+
     h2 {
         font-size: 1.6rem;
     }
-    
+
     h3 {
         font-size: 1.4rem;
     }
-    
+
     .hero-content h1 {
         font-size: 2.8rem;
     }
-    
+
     .nav-links a {
         font-size: 0.8rem;
     }
-    
+
     .social-links {
         gap: 20px;
     }
-    
+
     .footer-links {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .about-images {
         height: 300px;
     }
@@ -1314,7 +1315,7 @@ footer p {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         gap: 30px;
     }
-    
+
     .tech-item img {
         height: 50px;
     }
@@ -1386,7 +1387,7 @@ footer p {
     .about-content {
         grid-template-columns: 1fr;
     }
-    
+
     .about-images {
         height: 400px;
         margin: 0 auto;
@@ -1421,26 +1422,32 @@ footer p {
     .container {
         padding: 0 15px; /* Reduce container padding */
     }
-    
+
     /* Improve image responsiveness */
     img {
         max-width: 100%;
         height: auto;
     }
-    
+
     /* Adjust hero section for mobile */
     .hero-section {
-        height: 90vh;
+        height: 100vh;
         background-position: center center;
     }
-    
+
     /* Make sure all containers are properly sized */
     .container {
         width: 100%;
         max-width: 100%;
+        padding: 0 20px;
         overflow-x: hidden;
     }
-    
+
+    /* Adjust section spacing for mobile */
+    section {
+        padding: 60px 0;
+    }
+
     /* Ensure touch targets are large enough */
     button, .btn, .nav-links a {
         min-height: 44px;
@@ -1469,12 +1476,13 @@ footer p {
         left: -100%; /* Hide off-screen initially */
         width: 100%;
         height: 100vh;
-        background-color: var(--bg-light);
+        background-color: rgba(0, 0, 0, 0.95);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: left 0.3s ease-in-out;
+        transition: all 0.4s ease-in-out;
         z-index: 1000; /* Ensure nav is on top */
+        padding: 20px;
     }
 
     .nav-links.active {
@@ -1484,11 +1492,36 @@ footer p {
     .nav-links a {
         font-size: 1.2rem;
         margin: 15px 0;
+        padding: 10px 20px;
+        width: 80%;
+        text-align: center;
+        border-radius: 4px;
     }
 
-    .menu-toggle {
+    .nav-links .nav-left,
+    .nav-links .nav-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-links .nav-logo {
+        margin: 20px 0;
+        font-size: 1.5rem;
+    }
+
+    .mobile-menu-btn {
         display: block; /* Show hamburger menu */
         z-index: 1001; /* Ensure toggle is above nav */
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        width: 30px;
+        height: 25px;
     }
 
     .hero-section {
@@ -1624,28 +1657,28 @@ footer p {
         width: 100px;
         height: 100px;
     }
-    
+
     .about-images {
         height: 280px;
     }
-    
+
     .about-text p {
         font-size: 0.95rem;
     }
-    
+
     .skills-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .tech-stack-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
-    
+
     .tech-item img {
         height: 40px;
     }
-    
+
     .btn {
         padding: 10px 20px;
         font-size: 0.85rem;
@@ -1657,29 +1690,81 @@ footer p {
     h1 {
         font-size: 2.2rem;
     }
-    
+
     h2 {
         font-size: 1.4rem;
     }
-    
+
     .hero-content h1 {
         font-size: 2.2rem;
         letter-spacing: 1px;
     }
-    
+
     .nav-logo {
         font-size: 1.4rem;
     }
-    
+
+    /* Improved mobile menu for very small devices */
+    .mobile-menu-btn {
+        width: 36px;
+        height: 36px;
+        right: 10px;
+    }
+
+    .mobile-menu-btn span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 3px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+    }
+
+    .mobile-menu-btn span:nth-child(1) {
+        top: 0px;
+    }
+
+    .mobile-menu-btn span:nth-child(2) {
+        top: 10px;
+    }
+
+    .mobile-menu-btn span:nth-child(3) {
+        top: 20px;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+        top: 10px;
+        transform: rotate(135deg);
+    }
+
+    .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+        left: -60px;
+    }
+
+    .mobile-menu-btn.active span:nth-child(3) {
+        top: 10px;
+        transform: rotate(-135deg);
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+
     .company-logo {
         width: 80px;
         height: 80px;
     }
-    
+
     .about-images {
         height: 240px;
     }
-    
+
     .container {
         padding: 0 10px;
     }
@@ -1718,13 +1803,38 @@ footer {
 /* Fix for iOS devices to handle fixed positioning better */
 @supports (-webkit-touch-callout: none) {
     .nav-links.active {
-        position: absolute;
-        height: 100%;
+        position: fixed;
+        height: 100vh;
         -webkit-overflow-scrolling: touch;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw; /* Use viewport width */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 1000;
     }
-    
+
     header.scrolled {
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
+        background-color: rgba(17, 17, 17, 0.9);
+    }
+}
+
+/* Portrait orientation adjustments for mobile devices */
+@media (max-width: 768px) and (orientation: portrait) {
+    /* Adjust hero section for portrait orientation */
+    .hero-section {
+        height: 100vh;
+    }
+
+    /* Adjust grid layouts for portrait orientation */
+    .companies-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 }
