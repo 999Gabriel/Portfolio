@@ -1,279 +1,101 @@
-/* =========================================
-   Premium Portfolio - Interactions
-   ========================================= */
+/* =========================================================
+   Gabriel Winkler — Portfolio Interactions
+   Lean vanilla JS: scroll reveal, stat counters, nav active state
+   ========================================================= */
 
-// Lenis Smooth Scroll
-const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  smooth: true,
-});
+(function () {
+  'use strict';
 
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
+  /* -----------------------------------------
+     Scroll reveal with IntersectionObserver
+     ----------------------------------------- */
+  const revealEls = document.querySelectorAll('.reveal');
 
-// GSAP Setup
-gsap.registerPlugin(ScrollTrigger);
-lenis.on('scroll', ScrollTrigger.update);
-gsap.ticker.add((time) => lenis.raf(time * 1000));
-gsap.ticker.lagSmoothing(0);
-
-/* =========================================
-   Custom Cursor
-   ========================================= */
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
-let mouseX = 0, mouseY = 0;
-let outlineX = 0, outlineY = 0;
-
-document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-
-  // Dot follows instantly
-  if (cursorDot) {
-    cursorDot.style.left = mouseX + 'px';
-    cursorDot.style.top = mouseY + 'px';
-  }
-});
-
-// Smooth outline follow
-function animateCursor() {
-  outlineX += (mouseX - outlineX) * 0.15;
-  outlineY += (mouseY - outlineY) * 0.15;
-
-  if (cursorOutline) {
-    cursorOutline.style.left = outlineX + 'px';
-    cursorOutline.style.top = outlineY + 'px';
-  }
-
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-/* =========================================
-   Magnetic Buttons
-   ========================================= */
-const magneticElements = document.querySelectorAll('.magnetic');
-
-magneticElements.forEach(elem => {
-  elem.addEventListener('mousemove', (e) => {
-    const rect = elem.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-
-    gsap.to(elem, {
-      x: x * 0.3,
-      y: y * 0.3,
-      duration: 0.4,
-      ease: 'power2.out'
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -6% 0px'
     });
-  });
 
-  elem.addEventListener('mouseleave', () => {
-    gsap.to(elem, {
-      x: 0,
-      y: 0,
-      duration: 0.6,
-      ease: 'elastic.out(1, 0.5)'
-    });
-  });
-});
-
-/* =========================================
-   Navigation Scroll
-   ========================================= */
-const nav = document.querySelector('.nav');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 100) {
-    nav.classList.add('scrolled');
+    revealEls.forEach((el) => revealObserver.observe(el));
   } else {
-    nav.classList.remove('scrolled');
+    revealEls.forEach((el) => el.classList.add('is-visible'));
   }
-});
 
-/* =========================================
-   Hero Animations
-   ========================================= */
-const heroTl = gsap.timeline({ delay: 0.3 });
+  /* -----------------------------------------
+     Stat counter animation
+     ----------------------------------------- */
+  const counters = document.querySelectorAll('.stat-value');
 
-// Title lines sweep in
-heroTl.from('.title-line .char-wrap', {
-  y: '100%',
-  duration: 1.2,
-  stagger: 0.1,
-  ease: 'power4.out'
-});
+  const animateCount = (el) => {
+    const target = parseInt(el.dataset.value, 10) || 0;
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now();
 
-// Hero image reveal
-heroTl.to('.hero-img', {
-  opacity: 1,
-  y: 0,
-  duration: 1.2,
-  ease: 'power3.out'
-}, '-=0.8');
+    const step = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // easeOutCubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.round(target * eased);
+      el.textContent = value + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
 
-// Badges and lead text
-heroTl.from(['.hero-badges', '.hero-lead', '.hero-actions'], {
-  y: 30,
-  opacity: 0,
-  duration: 0.8,
-  stagger: 0.1,
-  ease: 'power2.out'
-}, '-=0.8');
+    requestAnimationFrame(step);
+  };
 
-// Floating shapes
-heroTl.from('.shape', {
-  scale: 0,
-  opacity: 0,
-  duration: 1,
-  stagger: 0.2,
-  ease: 'back.out(1.7)'
-}, '-=1');
+  if ('IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
 
-// Scroll indicator
-heroTl.from('.scroll-indicator', {
-  opacity: 0,
-  y: 20,
-  duration: 0.6,
-  ease: 'power2.out'
-}, '-=0.5');
+    counters.forEach((el) => counterObserver.observe(el));
+  } else {
+    counters.forEach((el) => {
+      el.textContent = (el.dataset.value || '0') + (el.dataset.suffix || '');
+    });
+  }
 
-/* =========================================
-   Scroll Animations
-   ========================================= */
+  /* -----------------------------------------
+     Nav active link on scroll
+     ----------------------------------------- */
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = [...navLinks]
+    .map((link) => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return null;
+      const section = document.querySelector(href);
+      return section ? { link, section } : null;
+    })
+    .filter(Boolean);
 
-// Section titles
-gsap.utils.toArray('.section-title').forEach(title => {
-  gsap.from(title, {
-    scrollTrigger: {
-      trigger: title,
-      start: 'top 85%',
-    },
-    y: 40,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out'
-  });
-});
+  if (sections.length && 'IntersectionObserver' in window) {
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const match = sections.find((s) => s.section === entry.target);
+          if (match) {
+            navLinks.forEach((l) => l.classList.remove('active'));
+            match.link.classList.add('active');
+          }
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
 
-// Service cards
-gsap.from('.service-card', {
-  scrollTrigger: {
-    trigger: '.services-grid',
-    start: 'top 80%',
-  },
-  y: 50,
-  opacity: 0,
-  scale: 0.95,
-  duration: 0.8,
-  stagger: 0.1,
-  ease: 'power3.out'
-});
-
-// Philosophy quote
-gsap.from('.big-quote', {
-  scrollTrigger: {
-    trigger: '.big-quote',
-    start: 'top 80%',
-  },
-  y: 40,
-  opacity: 0,
-  duration: 1,
-  ease: 'power3.out'
-});
-
-// Timeline items
-gsap.utils.toArray('.timeline-item').forEach((item, i) => {
-  gsap.from(item, {
-    scrollTrigger: {
-      trigger: item,
-      start: 'top 90%',
-    },
-    x: -30,
-    opacity: 0,
-    duration: 0.8,
-    delay: i * 0.1,
-    ease: 'power2.out'
-  });
-});
-
-// Project cards - staggered scale
-gsap.from('.project-card', {
-  scrollTrigger: {
-    trigger: '.projects-grid',
-    start: 'top 80%',
-  },
-  y: 60,
-  opacity: 0,
-  scale: 0.95,
-  duration: 1,
-  stagger: 0.15,
-  ease: 'power3.out'
-});
-
-// Featured image
-gsap.from('.featured-wrapper', {
-  scrollTrigger: {
-    trigger: '.featured-image-section',
-    start: 'top 80%',
-  },
-  y: 50,
-  opacity: 0,
-  scale: 0.98,
-  duration: 1.2,
-  ease: 'power3.out'
-});
-
-/* =========================================
-   Stats Counter Animation (Fixed)
-   ========================================= */
-gsap.utils.toArray('.big-number').forEach(num => {
-  const targetValue = parseInt(num.dataset.value) || 0;
-  const suffix = num.dataset.suffix || '+';
-
-  gsap.to(num, {
-    scrollTrigger: {
-      trigger: num,
-      start: 'top 90%',
-    },
-    innerText: targetValue,
-    duration: 2,
-    ease: 'power2.out',
-    snap: { innerText: 1 },
-    onUpdate: function () {
-      num.textContent = Math.round(num.innerText) + suffix;
-    }
-  });
-});
-
-// Footer CTA
-gsap.from('.footer-cta', {
-  scrollTrigger: {
-    trigger: '.footer-cta',
-    start: 'top 85%',
-  },
-  y: 50,
-  opacity: 0,
-  duration: 1,
-  ease: 'power3.out'
-});
-
-/* =========================================
-   Smooth Anchor Links
-   ========================================= */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      lenis.scrollTo(target, { duration: 1.5 });
-    }
-  });
-});
-
-console.log('🚀 Premium Portfolio Loaded');
+    sections.forEach(({ section }) => navObserver.observe(section));
+  }
+})();
