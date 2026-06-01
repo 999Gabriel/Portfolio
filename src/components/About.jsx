@@ -35,7 +35,7 @@ export default function About() {
         <div className="about-photo-wrap">
           <img src={handPhoto} alt="" className="about-photo" style={{ objectPosition: 'center center' }} />
           <div className="about-photo-caption">
-            <span>Gabriel Winkler · Innsbruck, 2026</span>
+            <span>Gabriel Winkler · Wattens, 2026</span>
           </div>
         </div>
         <div className="about-content">
@@ -47,7 +47,7 @@ export default function About() {
             I build things<br />that <em>actually ship.</em>
           </h2>
           <p className="about-text">
-            18. Innsbruck. 5th year at HTL Anichstraße, studying Industrial
+            19. From Wattens. 5th year at HTL Anichstraße, studying Industrial
             Engineering &amp; IT. I founded WinWare to build real software for
             real clients. Co-founded CULINA as a Junior Company. Now in the
             deep end of my Diplomarbeit — Feynman.

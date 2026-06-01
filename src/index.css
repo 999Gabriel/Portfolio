@@ -623,13 +623,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .view-all-link:hover { color: var(--crimson); gap: 14px; }
 
-/* Featured (Feynman) card */
+/* Featured project cards */
+.projects-featured-stack {
+  display: grid;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+
 .project-featured-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
   border: 1.5px solid var(--black);
-  margin-bottom: 2px;
   overflow: hidden;
   transition: transform var(--t-base), box-shadow var(--t-base);
   cursor: pointer;
@@ -707,6 +712,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex-direction: column;
   justify-content: space-between;
   min-height: 360px;
+}
+.pf-logo-panel {
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 48px;
+  border-left: 1.5px solid var(--black);
+}
+.pf-logo {
+  width: 72%;
+  max-width: 280px;
+  max-height: 180px;
+  object-fit: contain;
+  opacity: 0.92;
 }
 .pf-terminal-bar {
   display: flex;

@@ -2,6 +2,7 @@ import feynmanImg from '../../assets/feynman_logo.png'
 import winwareImg from '../../assets/1_winware.png'
 import cervelinguaImg from '../../assets/CerveLingua.png'
 import culinaImg from '../../assets/Culina_logo.png'
+import fl0wImg from '../../assets/fl0w-logo.png'
 
 export const projects = [
   {
@@ -12,8 +13,24 @@ export const projects = [
     stack: ['Python', 'FastAPI', 'Anthropic Claude API', 'HTML/CSS/JS'],
     github: 'https://github.com/999Gabriel/Feynman',
     image: feynmanImg,
-    year: '2025 – 2026',
+    year: '2026 – 2027',
     category: 'AI · Diplomarbeit',
+    featureLabel: 'Diplomarbeit 2026 / 27',
+    featured: true,
+    accent: true,
+  },
+  {
+    id: 'fl0w',
+    name: 'fl0w',
+    tagline: 'Paste a source file. See how it actually fits together.',
+    description: 'Single-page code analysis tool that parses one file and draws an interactive graph of function calls and data/state flow. It supports multiple languages, runs entirely in the browser, and keeps a minimalist black-and-white pixel-terminal aesthetic.',
+    stack: ['React', 'TypeScript', 'Vite', '@babel/parser', 'React Flow', 'Dagre'],
+    github: 'https://github.com/999Gabriel/fl0w',
+    url: 'https://999gabriel.github.io/fl0w/',
+    image: fl0wImg,
+    year: '2026',
+    category: 'Developer Tool · Code Analysis',
+    featureLabel: 'Featured Tool 2026',
     featured: true,
     accent: true,
   },
@@ -27,7 +44,7 @@ export const projects = [
     image: winwareImg,
     year: '2024 – Present',
     category: 'Company · Agency',
-    featured: true,
+    featured: false,
     accent: false,
   },
   {
@@ -40,7 +57,7 @@ export const projects = [
     image: cervelinguaImg,
     year: '2024',
     category: 'AI · Research',
-    featured: true,
+    featured: false,
     accent: false,
   },
   {

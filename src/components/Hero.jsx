@@ -88,9 +88,9 @@ export default function Hero() {
         <div className="hero-separator" />
 
         <div className="hero-meta">
-          <span className="hero-meta-item">18</span>
+          <span className="hero-meta-item">19</span>
           <span className="hero-meta-sep">·</span>
-          <span className="hero-meta-item">Innsbruck, Austria</span>
+          <span className="hero-meta-item">Wattens, Austria</span>
           <span className="hero-meta-sep">·</span>
           <span className="hero-meta-item">Full-Stack Engineer</span>
         </div>
@@ -135,8 +135,8 @@ export default function Hero() {
           ref={photoRef}
         />
         <div className="hero-photo-badge">
-          18
-          <span className="hero-photo-badge-sub">Innsbruck</span>
+          19
+          <span className="hero-photo-badge-sub">Wattens</span>
         </div>
       </div>
     </section>

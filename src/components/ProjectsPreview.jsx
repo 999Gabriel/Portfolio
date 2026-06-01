@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { projects } from '../data/projects.js'
+import { featuredProjects, projects } from '../data/projects.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -14,17 +14,19 @@ const MARQUEE_ITEMS = [
 
 export default function ProjectsPreview() {
   const sectionRef = useRef(null)
-  const feynman = projects.find(p => p.id === 'feynman')
-  const rest = projects.filter(p => p.id !== 'feynman').slice(0, 3)
+  const featured = featuredProjects.slice(0, 2)
+  const featuredIds = new Set(featured.map(p => p.id))
+  const rest = projects.filter(p => !featuredIds.has(p.id)).slice(0, 3)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from('.project-featured-card', {
         opacity: 0,
         y: 32,
+        stagger: 0.12,
         duration: 0.8,
         ease: 'power2.out',
-        scrollTrigger: { trigger: '.project-featured-card', start: 'top 82%' },
+        scrollTrigger: { trigger: '.projects-featured-stack', start: 'top 82%' },
       })
       gsap.from('.proj-card, .proj-card-more', {
         opacity: 0,
@@ -64,53 +66,51 @@ export default function ProjectsPreview() {
             </Link>
           </div>
 
-          {/* Feynman featured card */}
-          <Link to="/projects/feynman" className="project-featured-card">
-            <div className="pf-left">
-              <span className="pf-badge">Diplomarbeit 2025 / 26</span>
-              <h3 className="pf-name">{feynman.name}</h3>
-              <p className="pf-tagline">{feynman.tagline}</p>
-              <p className="pf-desc">{feynman.description}</p>
-              <div className="pf-tags">
-                {feynman.stack.map(t => <span className="pf-tag" key={t}>{t}</span>)}
-              </div>
-              <div className="pf-links">
-                <span className="btn btn-dark" style={{ pointerEvents: 'none' }}>View Project →</span>
-                <a
-                  href={feynman.github}
-                  target="_blank"
-                  rel="noopener"
-                  className="btn btn-outline"
-                  onClick={e => e.stopPropagation()}
-                >
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
+          <div className="projects-featured-stack">
+            {featured.map(project => (
+              <Link to={`/projects/${project.id}`} className="project-featured-card" key={project.id}>
+                <div className="pf-left">
+                  <span className="pf-badge">{project.featureLabel || project.category}</span>
+                  <h3 className="pf-name">{project.name}</h3>
+                  <p className="pf-tagline">{project.tagline}</p>
+                  <p className="pf-desc">{project.description}</p>
+                  <div className="pf-tags">
+                    {project.stack.map(t => <span className="pf-tag" key={t}>{t}</span>)}
+                  </div>
+                  <div className="pf-links">
+                    <span className="btn btn-dark" style={{ pointerEvents: 'none' }}>View Project →</span>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener"
+                        className="btn btn-outline"
+                        onClick={e => e.stopPropagation()}
+                      >
+                        GitHub ↗
+                      </a>
+                    )}
+                  </div>
+                </div>
 
-            <div className="pf-right" style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              background: 'var(--bg)',
-              padding: 48,
-              borderLeft: '1.5px solid var(--black)',
-            }}>
-              {feynman.image && (
-                <img
-                  src={feynman.image}
-                  alt="Feynman"
-                  style={{ width: '72%', maxWidth: 260, opacity: 0.9 }}
-                />
-              )}
-            </div>
-          </Link>
+                <div className="pf-right pf-logo-panel">
+                  {project.image && (
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      className="pf-logo"
+                    />
+                  )}
+                </div>
+              </Link>
+            ))}
+          </div>
 
           {/* Secondary cards */}
           <div className="projects-grid-secondary">
             {rest.map((p, i) => (
               <Link to={`/projects/${p.id}`} key={p.id} className="proj-card">
-                <span className="proj-card-num">0{i + 2}</span>
+                <span className="proj-card-num">0{i + featured.length + 1}</span>
                 {p.image && (
                   <img src={p.image} alt={p.name} className="proj-card-img" />
                 )}
@@ -121,7 +121,7 @@ export default function ProjectsPreview() {
             ))}
 
             <Link to="/projects" className="proj-card-more">
-              <span className="proj-card-more-num">+{projects.length - 4}</span>
+              <span className="proj-card-more-num">+{projects.length - featured.length - rest.length}</span>
               <span className="proj-card-more-label">More Projects →</span>
             </Link>
           </div>
