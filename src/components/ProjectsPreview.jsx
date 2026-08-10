@@ -6,127 +6,56 @@ import { projects } from '../data/projects.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const MARQUEE_ITEMS = [
-  'React', 'TypeScript', 'Python', 'FastAPI', 'Docker',
-  'PostgreSQL', 'Swift', 'Claude API', 'Arduino', 'n8n',
-  'Linux', 'Node.js', 'React Native',
-]
-
 export default function ProjectsPreview() {
   const sectionRef = useRef(null)
-  const feynman = projects.find(p => p.id === 'feynman')
-  const rest = projects.filter(p => p.id !== 'feynman').slice(0, 3)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.project-featured-card', {
+      gsap.from('.work-row', {
         opacity: 0,
-        y: 32,
-        duration: 0.8,
+        y: 22,
+        stagger: 0.06,
+        duration: 0.7,
         ease: 'power2.out',
-        scrollTrigger: { trigger: '.project-featured-card', start: 'top 82%' },
-      })
-      gsap.from('.proj-card, .proj-card-more', {
-        opacity: 0,
-        y: 20,
-        stagger: 0.08,
-        duration: 0.6,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: '.projects-grid-secondary', start: 'top 84%' },
+        scrollTrigger: { trigger: '.work-list', start: 'top 82%' },
       })
     }, sectionRef)
     return () => ctx.revert()
   }, [])
 
   return (
-    <>
-      {/* Tech marquee */}
-      <div className="marquee-section">
-        <div className="marquee-track">
-          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span className="marquee-item" key={i}>
-              <span className="marquee-dot" />
-              {item}
-            </span>
-          ))}
+    <section id="work" className="section wrap" ref={sectionRef}>
+      <div className="section-head">
+        <div className="section-head-left">
+          <span className="section-index">01</span>
+          <h2 className="section-title">Selected Work</h2>
         </div>
+        <span className="eyebrow">{projects.length} Projects</span>
       </div>
 
-      <section id="work" className="projects-section" ref={sectionRef}>
-        <div className="projects-inner">
-          <div className="projects-head">
-            <div>
-              <span style={{ fontFamily: 'var(--ff-mono)', fontSize: 10, color: 'var(--crimson)', letterSpacing: '0.18em', display: 'block', marginBottom: 8 }}>01</span>
-              <h2 className="section-title">SELECTED<br />WORK</h2>
-            </div>
-            <Link to="/projects" className="view-all-link">
-              View All Projects →
-            </Link>
-          </div>
-
-          {/* Feynman featured card */}
-          <Link to="/projects/feynman" className="project-featured-card">
-            <div className="pf-left">
-              <span className="pf-badge">Diplomarbeit 2025 / 26</span>
-              <h3 className="pf-name">{feynman.name}</h3>
-              <p className="pf-tagline">{feynman.tagline}</p>
-              <p className="pf-desc">{feynman.description}</p>
-              <div className="pf-tags">
-                {feynman.stack.map(t => <span className="pf-tag" key={t}>{t}</span>)}
-              </div>
-              <div className="pf-links">
-                <span className="btn btn-dark" style={{ pointerEvents: 'none' }}>View Project →</span>
-                <a
-                  href={feynman.github}
-                  target="_blank"
-                  rel="noopener"
-                  className="btn btn-outline"
-                  onClick={e => e.stopPropagation()}
-                >
-                  GitHub ↗
-                </a>
+      <div className="work-list">
+        {projects.map((p, i) => (
+          <Link to={`/projects/${p.id}`} key={p.id} className="work-row">
+            <span className="wr-index">{String(i + 1).padStart(2, '0')}</span>
+            <div className="wr-main">
+              <h3 className="wr-name">{p.name}</h3>
+              <p className="wr-tagline">{p.tagline}</p>
+              <div className="wr-stack">
+                {p.stack.slice(0, 5).map((t) => <span key={t}>{t}</span>)}
               </div>
             </div>
-
-            <div className="pf-right" style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              background: 'var(--bg)',
-              padding: 48,
-              borderLeft: '1.5px solid var(--black)',
-            }}>
-              {feynman.image && (
-                <img
-                  src={feynman.image}
-                  alt="Feynman"
-                  style={{ width: '72%', maxWidth: 260, opacity: 0.9 }}
-                />
-              )}
+            <div className="wr-meta">
+              <div>{p.year}</div>
+              <div className="wr-cat">{p.category}</div>
             </div>
+            <span className="wr-arrow">↗</span>
           </Link>
+        ))}
+      </div>
 
-          {/* Secondary cards */}
-          <div className="projects-grid-secondary">
-            {rest.map((p, i) => (
-              <Link to={`/projects/${p.id}`} key={p.id} className="proj-card">
-                <span className="proj-card-num">0{i + 2}</span>
-                {p.image && (
-                  <img src={p.image} alt={p.name} className="proj-card-img" />
-                )}
-                <h3 className="proj-card-name">{p.name}</h3>
-                <p className="proj-card-tagline">{p.tagline}</p>
-                <span className="proj-card-cat">{p.category}</span>
-              </Link>
-            ))}
-
-            <Link to="/projects" className="proj-card-more">
-              <span className="proj-card-more-num">+{projects.length - 4}</span>
-              <span className="proj-card-more-label">More Projects →</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-    </>
+      <div className="work-foot">
+        <Link to="/projects" className="btn btn-line">Full Index →</Link>
+      </div>
+    </section>
   )
 }
