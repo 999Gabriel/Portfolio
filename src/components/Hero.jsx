@@ -26,7 +26,7 @@ export default function Hero() {
         <div className="hero-text">
           <div className="hero-eyebrow eyebrow">
             <span className="dot" />
-            <span>Portfolio — Innsbruck, 2026</span>
+            <span>Portfolio — Wattens, 2026</span>
           </div>
 
           <h1 className="hero-name">
@@ -37,7 +37,7 @@ export default function Hero() {
           <div className="hero-sub">
             <span className="hero-role">Full-stack engineer &amp; founder</span>
             <span className="hero-meta">
-              <span>18</span><span className="sep">/</span>
+              <span>19</span><span className="sep">/</span>
               <span>HTL Anichstraße</span><span className="sep">/</span>
               <span>Matura 2027</span>
             </span>

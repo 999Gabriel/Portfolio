@@ -36,7 +36,7 @@ export default function About() {
       <div className="about-grid">
         <figure className="about-figure">
           <img src={portrait} alt="Gabriel Winkler" />
-          <figcaption>Gabriel Winkler — Innsbruck, 2026</figcaption>
+          <figcaption>Gabriel Winkler — Wattens, 2026</figcaption>
         </figure>
 
         <div className="about-content">
@@ -44,7 +44,7 @@ export default function About() {
             I build things that <em>actually ship.</em>
           </h3>
           <p className="about-p">
-            18, based in Innsbruck. In my 5th year at <strong>HTL Anichstraße</strong>,
+            19, from Wattens. In my 5th year at <strong>HTL Anichstraße</strong>,
             studying Industrial Engineering &amp; IT — where engineering meets business.
             I founded <strong>WinWare</strong> to build real software for real clients and
             co-founded <strong>CULINA</strong> as a Junior Company.

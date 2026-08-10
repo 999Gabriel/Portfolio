@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const ENTRIES = [
   {
-    date: '2025 — 2026',
+    date: '2026 — 2027',
     role: 'Diplomarbeit: Feynman',
     org: 'HTL Anichstraße',
     desc: 'Building an adaptive AI learning agent with persistent memory. Co-authored with Rojat Camgöz. Python + FastAPI + Anthropic Claude API.',

@@ -33,7 +33,7 @@ export default function Contact() {
       <footer className="footer">
         <span className="footer-brand">Gabriel Winkler</span>
         <SocialLinks variant="icon" />
-        <span className="footer-copy">© 2026 — Innsbruck, Austria</span>
+        <span className="footer-copy">© 2026 — Wattens, Austria</span>
       </footer>
     </section>
   )
