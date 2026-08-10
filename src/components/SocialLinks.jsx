@@ -21,7 +21,7 @@ const SOCIALS = [
     label: 'X',
     href: 'https://x.com/The999GABRIEL',
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
       </svg>
     ),
@@ -30,38 +30,29 @@ const SOCIALS = [
     label: 'Email',
     href: 'mailto:999gabriel.winkler@gmail.com',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="17" height="17" aria-hidden="true">
-        <rect x="2" y="4" width="20" height="16" rx="2" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="17" height="17" aria-hidden="true">
+        <rect x="2" y="4" width="20" height="16" />
         <polyline points="2,4 12,13 22,4" />
       </svg>
     ),
   },
 ]
 
-/* variant: 'icon' (square boxes) | 'text' (mono text links) | 'overlay' (large overlay links) */
-export default function SocialLinks({ variant = 'icon', invert = false }) {
-  if (variant === 'text') {
+/* variant: 'icon' (icon row) | 'text' (labelled links) | 'overlay' (labelled, inverted) */
+export default function SocialLinks({ variant = 'icon' }) {
+  const target = (href) => (href.startsWith('mailto') ? undefined : '_blank')
+
+  if (variant === 'text' || variant === 'overlay') {
+    const invert = variant === 'overlay'
     return (
-      <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', alignItems: 'center' }}>
-        {SOCIALS.map(s => (
+      <div className={`social-row ${invert ? 'invert' : ''}`}>
+        {SOCIALS.map((s) => (
           <a
             key={s.label}
             href={s.href}
-            target={s.href.startsWith('mailto') ? undefined : '_blank'}
+            target={target(s.href)}
             rel="noopener"
-            style={{
-              fontFamily: 'var(--ff-mono)',
-              fontSize: 10,
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-              color: invert ? 'rgba(247,244,239,0.4)' : 'var(--gray-2)',
-              transition: 'color 0.15s ease',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 6,
-            }}
-            onMouseEnter={e => e.currentTarget.style.color = 'var(--crimson)'}
-            onMouseLeave={e => e.currentTarget.style.color = invert ? 'rgba(247,244,239,0.4)' : 'var(--gray-2)'}
+            className="social-link social-text"
           >
             {s.icon}
             {s.label}
@@ -71,68 +62,17 @@ export default function SocialLinks({ variant = 'icon', invert = false }) {
     )
   }
 
-  if (variant === 'overlay') {
-    return (
-      <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
-        {SOCIALS.map(s => (
-          <a
-            key={s.label}
-            href={s.href}
-            target={s.href.startsWith('mailto') ? undefined : '_blank'}
-            rel="noopener"
-            className="nav-overlay-foot-link"
-            style={{
-              fontFamily: 'var(--ff-mono)',
-              fontSize: 11,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: 'rgba(247,244,239,0.35)',
-              transition: 'color 0.15s ease',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 7,
-            }}
-            onMouseEnter={e => e.currentTarget.style.color = 'var(--crimson)'}
-            onMouseLeave={e => e.currentTarget.style.color = 'rgba(247,244,239,0.35)'}
-          >
-            {s.icon}
-            {s.label}
-          </a>
-        ))}
-      </div>
-    )
-  }
-
-  // Default: icon boxes
   return (
-    <div style={{ display: 'flex', gap: 6 }}>
-      {SOCIALS.map(s => (
+    <div className="social-row">
+      {SOCIALS.map((s) => (
         <a
           key={s.label}
           href={s.href}
-          target={s.href.startsWith('mailto') ? undefined : '_blank'}
+          target={target(s.href)}
           rel="noopener"
+          className="social-link"
+          aria-label={s.label}
           title={s.label}
-          style={{
-            width: 40,
-            height: 40,
-            border: `1.5px solid ${invert ? 'rgba(247,244,239,0.15)' : 'var(--gray-4)'}`,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: invert ? 'rgba(247,244,239,0.5)' : 'var(--gray-2)',
-            transition: 'border-color 0.15s ease, color 0.15s ease, background 0.15s ease',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.borderColor = 'var(--crimson)'
-            e.currentTarget.style.color = 'var(--crimson)'
-            e.currentTarget.style.background = 'var(--crimson-bg)'
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.borderColor = invert ? 'rgba(247,244,239,0.15)' : 'var(--gray-4)'
-            e.currentTarget.style.color = invert ? 'rgba(247,244,239,0.5)' : 'var(--gray-2)'
-            e.currentTarget.style.background = 'transparent'
-          }}
         >
           {s.icon}
         </a>
