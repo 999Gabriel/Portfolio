@@ -3,6 +3,10 @@ import winwareImg from '../../assets/1_winware.png'
 import cervelinguaImg from '../../assets/CerveLingua.png'
 import culinaImg from '../../assets/Culina_logo.png'
 import fl0wImg from '../../assets/fl0w-logo.png'
+import orbisImg from '../../assets/orbis.jpeg'
+import brokeyImg from '../../assets/brokey.png'
+import brokey2Img from '../../assets/brokey_2.png'
+import oebbImg from '../../assets/oebb.png'
 
 export const projects = [
   {
@@ -36,12 +40,12 @@ export const projects = [
     id: 'winware',
     name: 'WinWare',
     tagline: 'Custom software built for real problems.',
-    description: 'Development studio and freelance operation building custom software, automation pipelines, and IoT solutions for clients across Austria.',
+    description: 'Development studio building custom software, automation pipelines, and IoT solutions for clients across Austria.',
     stack: ['React', 'Node.js', 'Python', 'IoT', 'Docker'],
     github: 'https://github.com/999Gabriel',
     image: winwareImg,
     year: '2024 — Present',
-    category: 'Company · Studio',
+    category: 'Studio',
     featured: true,
   },
   {
@@ -64,31 +68,31 @@ export const projects = [
     stack: ['Product Design', 'Business', 'Hardware'],
     github: null,
     image: culinaImg,
-    year: '2024 — Present',
+    year: '2025 — 2026',
     category: 'Entrepreneurship · Junior Company',
     featured: false,
   },
   {
     id: 'orbis',
     name: 'ORBIS',
-    tagline: 'Interactive orbital mechanics, in the browser.',
-    description: 'A WebGL visualization of orbital mechanics and space-object trajectories — built to explore real orbital data in an interactive 3D environment.',
-    longDescription: 'Renders bodies and their paths in real time so you can fly around the system and watch the physics play out.',
-    stack: ['JavaScript', 'Three.js', 'WebGL'],
+    tagline: 'A live 3D globe of the world’s data.',
+    description: 'An interactive 3D globe that visualizes live world data — news, flights, energy prices, and weather — layered over the planet in real time, with per-country detail panels.',
+    longDescription: 'Built with Three.js and WebGL over open data sources like the EIA. Spin the globe, switch layers, and drill into any country.',
+    stack: ['JavaScript', 'Three.js', 'WebGL', 'EIA API'],
     github: 'https://github.com/999Gabriel/ORBIS',
-    image: null,
-    year: '2024',
-    category: 'Visualization · Space',
+    image: orbisImg,
+    year: '2025',
+    category: 'Visualization · Live Data',
     featured: false,
   },
   {
     id: 'oebb-display',
     name: 'ÖBB Display',
-    tagline: 'Live Austrian railway departure board.',
-    description: 'Real-time ÖBB departure display that pulls live train data from the Austrian railway API and renders it in a clean, station-style interface.',
-    stack: ['JavaScript', 'ÖBB API', 'CSS'],
+    tagline: 'A live departure board for Austrian railways.',
+    description: 'A real-time ÖBB departure display — it pulls live train data from the Austrian railway API and renders it on a clean, station-style board built into a physical unit.',
+    stack: ['JavaScript', 'ÖBB API', 'Hardware'],
     github: 'https://github.com/999Gabriel/oebb-display',
-    image: null,
+    image: oebbImg,
     year: '2024',
     category: 'Tool · Transit',
     featured: false,
@@ -96,14 +100,14 @@ export const projects = [
   {
     id: 'brokey',
     name: 'Brokey',
-    tagline: "A finance tracker that doesn't lie to you.",
-    description: 'Mobile-first budgeting and expense tracker. Simple, fast, and honest about where your money actually goes.',
-    longDescription: 'Built to make everyday money tracking effortless — log spending in seconds and see the truth at a glance.',
-    stack: ['React Native', 'JavaScript', 'SQLite'],
+    tagline: 'Split trip expenses with your travel group.',
+    description: 'A .NET MAUI app for travel groups. Brokey makes splitting shared expenses on a trip effortless — log what everyone spends and it settles who owes whom, so nobody has to do the mental math.',
+    stack: ['.NET MAUI', 'C#', 'SQLite'],
     github: 'https://github.com/999Gabriel/Brokey_App',
-    image: null,
-    year: '2024',
-    category: 'Mobile App · Finance',
+    image: brokey2Img,
+    images: [brokey2Img, brokeyImg],
+    year: '2025',
+    category: 'Mobile App · Travel',
     featured: false,
   },
 ]

@@ -7,6 +7,15 @@ function Visual({ project }) {
   if (project.id === 'feynman') {
     return <div className="detail-visual"><img src={feynmanScreenshot} alt="Feynman" /></div>
   }
+  if (project.images && project.images.length) {
+    return (
+      <div className="detail-gallery">
+        {project.images.map((src, i) => (
+          <div className="detail-visual" key={i}><img src={src} alt={`${project.name} ${i + 1}`} /></div>
+        ))}
+      </div>
+    )
+  }
   if (project.image) {
     return <div className="detail-visual"><img src={project.image} alt={project.name} /></div>
   }

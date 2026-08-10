@@ -5,7 +5,11 @@ export default function About() {
         <p className="lead">
           19, from Wattens. I build software across AI, full-stack, and hardware.
         </p>
-        <p className="dim">Founder of WinWare. Co-founder of CULINA.</p>
+        <p className="dim">
+          Even in software, you have to search for beauty — I care as much about
+          aesthetics, branding, and how a thing feels as I do about what runs
+          underneath.
+        </p>
         <p className="dim">
           Currently building Feynman — an adaptive AI learning agent — as my
           Diplomarbeit.
