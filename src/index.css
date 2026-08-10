@@ -175,17 +175,26 @@ ul { list-style: none; }
 
 .certs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1rem, 2.5vw, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
 }
 .cert { display: block; }
-.cert img {
-  width: 100%;
+.cert-thumb {
+  aspect-ratio: 4 / 3;
   border: 1px solid var(--line);
-  filter: grayscale(1) contrast(1.03);
-  transition: filter 0.5s var(--ease), transform 0.5s var(--ease);
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease);
 }
-.cert:hover img { filter: grayscale(0) contrast(1); transform: translateY(-3px); }
+.cert-thumb img {
+  max-width: 100%; max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.03);
+  transition: filter 0.5s var(--ease);
+}
+.cert:hover .cert-thumb { transform: translateY(-3px); }
+.cert:hover .cert-thumb img { filter: none; }
 .cert-name { margin-top: 0.85rem; font-family: var(--ff-serif); font-size: 1.1rem; color: var(--ink); }
 .cert-sub  { font-size: 0.9rem; color: var(--faint); }
 
@@ -317,7 +326,20 @@ a.row:hover { opacity: 0.55; }
 .detail-body p { margin: 0 0 1.4rem; }
 .detail-body p:last-child { margin-bottom: 0; color: var(--muted); }
 .detail-visual { margin: clamp(2.5rem, 6vh, 5rem) 0; border: 1px solid var(--line); overflow: hidden; background: #fff; }
-.detail-visual img { width: 100%; display: block; filter: grayscale(1); }
+.detail-visual img { width: 100%; display: block; filter: grayscale(1); transition: filter 0.5s var(--ease); }
+.detail-visual:hover img { filter: none; }
+.detail-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  margin: clamp(2.5rem, 6vh, 5rem) 0;
+}
+.detail-gallery .detail-visual {
+  margin: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff;
+}
+.detail-gallery .detail-visual img { width: auto; max-width: 100%; max-height: 74vh; object-fit: contain; }
 .detail-visual-glyph {
   aspect-ratio: 16 / 6;
   display: flex; align-items: center; justify-content: center;

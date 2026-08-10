@@ -16,12 +16,12 @@ export default function Hero() {
 
   return (
     <section className="hero" ref={rootRef}>
+      <img className="hero-portrait" src={profilePhoto} alt="Gabriel Winkler" />
       <h1 className="hero-name">Gabriel Winkler</h1>
       <p className="hero-caption">
-        Full-stack engineer &amp; founder<br />
+        Engineering student &amp; future engineer<br />
         Wattens, Austria
       </p>
-      <img className="hero-portrait" src={profilePhoto} alt="Gabriel Winkler" />
     </section>
   )
 }

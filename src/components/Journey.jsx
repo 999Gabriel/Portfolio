@@ -1,8 +1,24 @@
 const ENTRIES = [
-  { date: '2026 — 2027', role: 'Diplomarbeit — Feynman', org: 'HTL Anichstraße' },
-  { date: '2024 — now',  role: 'Founder', org: 'WinWare' },
-  { date: '2024 — now',  role: 'Co-founder', org: 'CULINA Junior Company' },
-  { date: '2024 — 2025', role: 'Software engineer intern', org: 'Raitec Innsbruck' },
+  {
+    date: '2021 — 2027',
+    role: 'Student',
+    org: 'HTL Anichstraße — one of Austria’s most renowned technical colleges',
+  },
+  {
+    date: '2024 — now',
+    role: 'Founder',
+    org: 'WinWare — on hold during school',
+  },
+  {
+    date: 'Aug 2024 & 2025',
+    role: 'Software engineer intern',
+    org: 'Raitec Innsbruck — one month each summer',
+  },
+  {
+    date: 'Oct 2025 — May 2026',
+    role: 'Co-founder',
+    org: 'CULINA Junior Company',
+  },
 ]
 
 export default function Journey() {
