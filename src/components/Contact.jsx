@@ -23,7 +23,7 @@ export default function Contact() {
             </a>
           ))}
         </div>
-        <span className="footer-copy">© 2026 · Wattens, Austria</span>
+        <span className="footer-copy">© 2026 · Gabriel Winkler</span>
       </footer>
     </section>
   )

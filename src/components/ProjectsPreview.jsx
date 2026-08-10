@@ -1,36 +1,40 @@
-import { useEffect, useRef } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { projects } from '../data/projects.js'
 
-gsap.registerPlugin(ScrollTrigger)
-
 export default function ProjectsPreview() {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.list .row', {
-        opacity: 0, y: 16, duration: 0.7, stagger: 0.06, ease: 'power2.out',
-        scrollTrigger: { trigger: ref.current, start: 'top 80%' },
-      })
-    }, ref)
-    return () => ctx.revert()
-  }, [])
+  const [active, setActive] = useState(0)
 
   return (
-    <section id="work" className="wrap" ref={ref}>
-      <div className="list">
-        {projects.map((p) => (
-          <Link to={`/projects/${p.id}`} key={p.id} className="row">
-            <div>
-              <div className="row-name">{p.name}</div>
-              <div className="row-note">{p.tagline}</div>
+    <section id="work" className="wrap section-pad">
+      <span className="slabel">Work</span>
+
+      <div className="work-grid">
+        <ul className="work-names">
+          {projects.map((p, i) => (
+            <li key={p.id}>
+              <Link
+                to={`/projects/${p.id}`}
+                className="work-name"
+                onMouseEnter={() => setActive(i)}
+                onFocus={() => setActive(i)}
+              >
+                <span className="work-name-txt">{p.name}</span>
+                <span className="work-name-year">{p.year}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="work-preview" aria-hidden="true">
+          {projects.map((p, i) => (
+            <div className={`work-shot ${i === active ? 'on' : ''}`} key={p.id}>
+              {p.image
+                ? <img src={p.image} alt="" />
+                : <span className="work-shot-glyph">{p.name}</span>}
             </div>
-            <span className="row-year">{p.year}</span>
-          </Link>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )

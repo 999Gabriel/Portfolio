@@ -8,7 +8,7 @@ export default function Hero() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from('.hero > *', {
-        opacity: 0, y: 14, duration: 1.1, stagger: 0.12, ease: 'power2.out', delay: 0.1,
+        opacity: 0, y: 14, duration: 1.1, stagger: 0.14, ease: 'power2.out', delay: 0.1,
       })
     }, rootRef)
     return () => ctx.revert()
@@ -16,12 +16,12 @@ export default function Hero() {
 
   return (
     <section className="hero" ref={rootRef}>
-      <img className="hero-portrait" src={profilePhoto} alt="Gabriel Winkler" />
       <h1 className="hero-name">Gabriel Winkler</h1>
       <p className="hero-caption">
         Full-stack engineer &amp; founder<br />
         Wattens, Austria
       </p>
+      <img className="hero-portrait" src={profilePhoto} alt="Gabriel Winkler" />
     </section>
   )
 }
