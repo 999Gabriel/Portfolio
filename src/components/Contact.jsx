@@ -3,6 +3,7 @@ const LINKS = [
   { label: 'GitHub', href: 'https://github.com/999Gabriel' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/gabriel-winkler-44b705294/' },
   { label: 'X', href: 'https://x.com/The999GABRIEL' },
+  { label: 'Resume', href: '/Gabriel_Winkler_Resume.pdf' },
 ]
 
 export default function Contact() {

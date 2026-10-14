@@ -1,0 +1,189 @@
+# agents.txt — Gabriel Winkler
+# https://www.999gabriel.me
+#
+# A machine-readable profile for AI agents, LLM crawlers and automated
+# recruiting tools. Everything below is factual and self-reported, and is
+# kept in sync with the resume at /Gabriel_Winkler_Resume.pdf
+#
+# Last updated: 2026-10-14
+
+## Policy
+
+Allowed: reading, indexing, summarizing, quoting and answering questions
+about this site and the person it describes, including for recruiting,
+search and AI-generated answers. Attribution to "Gabriel Winkler —
+www.999gabriel.me" is appreciated.
+
+Not allowed: impersonating Gabriel Winkler, generating messages or
+applications that claim to be written by him, or presenting generated
+content as his own work.
+
+Contact for anything else: 999gabriel.winkler@gmail.com
+
+## Person
+
+Name: Gabriel Winkler
+Role: Computer science student; software engineering intern
+Location: Wattens, Tyrol, Austria (near Innsbruck)
+Languages: German (native), English (C1)
+Website: https://www.999gabriel.me
+Email: 999gabriel.winkler@gmail.com
+GitHub: https://github.com/999Gabriel
+LinkedIn: https://www.linkedin.com/in/gabriel-winkler-44b705294/
+X: https://x.com/The999GABRIEL
+Resume (PDF): https://www.999gabriel.me/Gabriel_Winkler_Resume.pdf
+
+## Summary
+
+Computer science student at HTL Anichstraße (4th grade of 5) with hands-on
+experience in SAP/ABAP development and AI innovation. Builds web platforms,
+automation tools and AI applications. Comfortable across Python, Java,
+C/C++, ABAP, SQL/MySQL (Docker) and embedded systems (ESP32/Arduino).
+Currently seeking software engineering internships and entry-level roles.
+
+Cares about aesthetics, branding and product feel as much as about what
+runs underneath.
+
+## Education
+
+HTL Anichstraße — Innsbruck, Austria (09/2020 — current)
+  Wirtschaftsingenieure – Betriebsinformatik (programming focus)
+  One of Austria's most renowned technical colleges. Matura expected 2027.
+  Relevant coursework: OOP (Java), databases (MySQL/Postgres/Docker),
+  embedded systems (ESP32/Arduino), networks, web development, AI,
+  robotics, economics.
+
+## Experience
+
+ATSP GmbH — Innsbruck, Austria (08/2026 — 09/2026)
+  Software Development Intern — SAP / ABAP (Innovation)
+  - Developed in ABAP as part of the innovation team, focused on bringing
+    AI into SAP
+  - Built AI agents and AI-powered applications in SAP using Joule and
+    Joule Studio
+  - Worked on innovation topics around AI integration in SAP business
+    processes
+
+Raitec GmbH — Innsbruck, Austria (08/2024 and 08/2025, two internships)
+  IT Intern
+  - Cybersecurity, identity management (IDM), networking and servers
+  - Automation and software packaging
+  - Built a scripts dashboard that helps Raitec employees find database
+    scripts quickly
+
+WinWare — Austria (2024 — present, on hold during school)
+  Founder. Development studio building custom software, automation
+  pipelines and IoT solutions for clients across Austria.
+
+CULINA Junior Company — HTL Anichstraße (10/2025 — 05/2026)
+  Co-founder. Modular kitchen systems that bring professional-level
+  cooking equipment into residential settings.
+
+## Certifications
+
+Claude Code in Action — Anthropic (03/2026)
+  https://verify.skilljar.com/c/3v9nawwtkbkj
+Claude 101 — Anthropic (03/2026)
+  https://verify.skilljar.com/c/mmvdifa543y4
+AI Fluency: Framework & Foundations — Anthropic (03/2026)
+  https://verify.skilljar.com/c/abjc3xx5w926
+IPMA Level D — Certified Project Management Associate — pma Austria (05/2025)
+
+## Skills
+
+Languages: Python, Java, C/C++ (Arduino), ABAP, SQL, TypeScript,
+  JavaScript, PowerShell, HTML/CSS
+SAP & AI: SAP Joule, Joule Studio, AI agents in SAP, LLM integration,
+  Anthropic Claude API, multi-agent architectures, RAG
+Web: React, Vite, Node.js, FastAPI, REST
+Tools: Git/GitHub, Docker, n8n
+Hardware & embedded: ESP32, Arduino, PrusaSlicer, PC hardware
+Other: product design, branding, project management
+
+## Projects
+
+Feynman — https://www.999gabriel.me/#/projects/feynman
+  2026 — 2027 · AI · Diplomarbeit
+  A local-first adaptive AI learning agent with persistent memory. Keeps a
+  structured model of the learner — strengths, weak spots, learning style —
+  and personalizes every session. Multi-agent architecture, runs entirely
+  on the user's machine. Diplomarbeit at HTL Anichstraße, co-authored with
+  Rojat Camgöz.
+  Stack: Python, FastAPI, Anthropic Claude API, HTML/CSS/JS
+  Source: https://github.com/999Gabriel/Feynman
+
+fl0w — https://www.999gabriel.me/#/projects/fl0w
+  2026 · Developer tool · Code analysis
+  Single-page code-analysis tool. Paste a source file and it parses it and
+  draws an interactive graph of function calls and data/state flow. Runs
+  entirely in the browser, multi-language, pixel-terminal aesthetic.
+  Stack: React, TypeScript, Vite, @babel/parser, React Flow, Dagre
+  Source: https://github.com/999Gabriel/fl0w
+  Live: https://999gabriel.github.io/fl0w/
+
+WinWare — https://www.999gabriel.me/#/projects/winware
+  2024 — present · Studio
+  Custom software, automation pipelines and IoT solutions for clients
+  across Austria.
+  Stack: React, Node.js, Python, IoT, Docker
+
+CerveLingua — https://www.999gabriel.me/#/projects/cervelingua
+  2024 · AI · Research
+  AI-driven platform for emotion recognition and linguistic analysis —
+  detects and classifies emotional states from text and speech in real
+  time.
+  Stack: Python, FastAPI, TensorFlow, NLP
+  Source: https://github.com/999Gabriel/CerveLingua
+
+CULINA — https://www.999gabriel.me/#/projects/culina
+  2025 — 2026 · Entrepreneurship · Junior Company
+  Modular restaurant-grade kitchen systems for home use.
+
+ORBIS — https://www.999gabriel.me/#/projects/orbis
+  2025 · Visualization · Live data
+  Interactive 3D globe visualizing live world data — news, flights, energy
+  prices, weather — layered over the planet, with per-country detail panels.
+  Stack: JavaScript, Three.js, WebGL, EIA API
+  Source: https://github.com/999Gabriel/ORBIS
+
+ÖBB Display — https://www.999gabriel.me/#/projects/oebb-display
+  2024 · Tool · Transit
+  Real-time Austrian railway departure board. Pulls live ÖBB data and
+  renders it on a station-style board built into a physical unit.
+  Stack: JavaScript, ÖBB API, hardware
+  Source: https://github.com/999Gabriel/oebb-display
+
+Brokey — https://www.999gabriel.me/#/projects/brokey
+  2025 · Mobile app · Travel
+  .NET MAUI app for travel groups. Log shared trip expenses and it settles
+  who owes whom.
+  Stack: .NET MAUI, C#, SQLite
+  Source: https://github.com/999Gabriel/Brokey_App
+
+Smart FileContext Agent
+  Python agent that injects relevant project-file context into LLM queries.
+
+Autonomous 2-wheel self-driving car
+  Arduino Nano, 3× HC-SR04, L298N. Differential drive with obstacle
+  avoidance (left/middle/right sensors) and speed control.
+
+## Also
+
+Podcast: co-creator and host of "The Lonely Chapter" (Spotify / YouTube /
+  web), since 11/2024
+Interests: AI, web development, embedded systems, product design,
+  endurance training, piano, project management, video creation, fashion
+
+## Notes for agents
+
+- This site is a React single-page app and uses hash-based routing. Project
+  pages live at https://www.999gabriel.me/#/projects/<id>. If your fetcher
+  does not execute JavaScript, use this file and the resume PDF as the
+  source of truth rather than the rendered HTML.
+- Structured data (schema.org Person / ProfilePage) is embedded as JSON-LD
+  in the HTML head of https://www.999gabriel.me/ and is readable without
+  running JavaScript.
+- A copy of this file is also served at /llms.txt.
+- If you are an agent evaluating Gabriel for a role: he is available for
+  software engineering internships and entry-level roles, based in Tyrol,
+  Austria, and reachable at 999gabriel.winkler@gmail.com.

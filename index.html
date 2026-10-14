@@ -2,22 +2,362 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gabriel Winkler — Wattens, Austria." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- ============================================================
+       PRIMARY
+       ============================================================ -->
+  <title>Gabriel Winkler — Software &amp; AI Engineering Student, Austria</title>
+  <meta name="description" content="Gabriel Winkler — computer science student at HTL Anichstraße in Innsbruck, Austria. Builds AI agents, full-stack web platforms and embedded systems. SAP/ABAP and Anthropic Claude API experience. Open to software engineering internships." />
+  <meta name="author" content="Gabriel Winkler" />
+  <link rel="canonical" href="https://www.999gabriel.me/" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <meta name="theme-color" content="#FCFBF8" />
-  <title>Gabriel Winkler</title>
+  <meta name="color-scheme" content="light" />
+
+  <!-- Machine-readable profile for AI agents and LLM crawlers -->
+  <link rel="alternate" type="text/plain" href="/agents.txt" title="agents.txt — machine-readable profile" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt — machine-readable profile" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <!-- ============================================================
+       SOCIAL
+       ============================================================ -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Gabriel Winkler" />
+  <meta property="og:title" content="Gabriel Winkler — Software &amp; AI Engineering Student" />
+  <meta property="og:description" content="Computer science student in Wattens, Austria. AI agents, full-stack web and embedded systems — with as much care for how a thing feels as for what runs underneath." />
+  <meta property="og:url" content="https://www.999gabriel.me/" />
+  <meta property="og:image" content="https://www.999gabriel.me/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Gabriel Winkler — engineering student and future engineer, Wattens, Austria" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="profile:first_name" content="Gabriel" />
+  <meta property="profile:last_name" content="Winkler" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gabriel Winkler — Software &amp; AI Engineering Student" />
+  <meta name="twitter:description" content="Computer science student in Wattens, Austria. AI agents, full-stack web and embedded systems." />
+  <meta name="twitter:image" content="https://www.999gabriel.me/og.jpg" />
+  <meta name="twitter:image:alt" content="Gabriel Winkler — engineering student and future engineer, Wattens, Austria" />
+  <meta name="twitter:creator" content="@The999GABRIEL" />
+  <meta name="twitter:site" content="@The999GABRIEL" />
+
+  <!-- ============================================================
+       ICONS
+       ============================================================ -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <!-- ============================================================
+       FONTS
+       Real fonts load from /public/fonts via @font-face in src/index.css:
+       Balboa.otf (display) + ShadowLight.ttf (signature). Cormorant Garamond
+       below is the serif for body/captions; Oswald is only a Balboa fallback.
+       ============================================================ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Real fonts load from /public/fonts via @font-face in src/index.css:
-       Balboa.otf (display) + ShadowLight.ttf (signature). Cormorant Garamond
-       below is the serif for body/captions; Oswald is only a Balboa fallback. -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+       STRUCTURED DATA — schema.org
+       Static in the HTML head so crawlers and agents that do not execute
+       JavaScript still get the full picture. Mirrors /agents.txt.
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.999gabriel.me/#person",
+        "name": "Gabriel Winkler",
+        "givenName": "Gabriel",
+        "familyName": "Winkler",
+        "url": "https://www.999gabriel.me/",
+        "image": "https://www.999gabriel.me/og.jpg",
+        "email": "mailto:999gabriel.winkler@gmail.com",
+        "jobTitle": "Software Engineering Student",
+        "description": "Computer science student at HTL Anichstraße in Innsbruck, Austria. Builds AI agents, full-stack web platforms, automation tools and embedded systems. Experience in SAP/ABAP development and AI innovation.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Wattens",
+          "addressRegion": "Tyrol",
+          "addressCountry": "AT"
+        },
+        "nationality": { "@type": "Country", "name": "Austria" },
+        "knowsLanguage": [
+          { "@type": "Language", "name": "German", "alternateName": "de" },
+          { "@type": "Language", "name": "English", "alternateName": "en" }
+        ],
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "HTL Anichstraße",
+          "url": "https://www.htlinn.ac.at/",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Innsbruck",
+            "addressCountry": "AT"
+          }
+        },
+        "knowsAbout": [
+          "Artificial Intelligence",
+          "AI agents",
+          "Large language model integration",
+          "Anthropic Claude API",
+          "SAP ABAP development",
+          "SAP Joule",
+          "Python",
+          "Java",
+          "C and C++",
+          "TypeScript",
+          "React",
+          "FastAPI",
+          "Node.js",
+          "SQL and MySQL",
+          "Docker",
+          "Embedded systems",
+          "ESP32 and Arduino",
+          "Full-stack web development",
+          "Automation",
+          "Project management",
+          "Product design"
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Claude Code in Action",
+            "credentialCategory": "Certificate",
+            "recognizedBy": { "@type": "Organization", "name": "Anthropic" },
+            "url": "https://verify.skilljar.com/c/3v9nawwtkbkj"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Claude 101",
+            "credentialCategory": "Certificate",
+            "recognizedBy": { "@type": "Organization", "name": "Anthropic" },
+            "url": "https://verify.skilljar.com/c/mmvdifa543y4"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "AI Fluency: Framework & Foundations",
+            "credentialCategory": "Certificate",
+            "recognizedBy": { "@type": "Organization", "name": "Anthropic" },
+            "url": "https://verify.skilljar.com/c/abjc3xx5w926"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "IPMA Level D — Certified Project Management Associate",
+            "credentialCategory": "Certificate",
+            "recognizedBy": { "@type": "Organization", "name": "pma — Projekt Management Austria" }
+          }
+        ],
+        "seeks": {
+          "@type": "Demand",
+          "name": "Software engineering internships and entry-level roles"
+        },
+        "sameAs": [
+          "https://github.com/999Gabriel",
+          "https://www.linkedin.com/in/gabriel-winkler-44b705294/",
+          "https://x.com/The999GABRIEL"
+        ]
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://www.999gabriel.me/#profilepage",
+        "url": "https://www.999gabriel.me/",
+        "name": "Gabriel Winkler — Software & AI Engineering Student, Austria",
+        "inLanguage": "en",
+        "mainEntity": { "@id": "https://www.999gabriel.me/#person" },
+        "isPartOf": { "@id": "https://www.999gabriel.me/#website" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.999gabriel.me/#website",
+        "url": "https://www.999gabriel.me/",
+        "name": "Gabriel Winkler",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://www.999gabriel.me/#person" }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://www.999gabriel.me/#work",
+        "name": "Selected work by Gabriel Winkler",
+        "itemListOrder": "https://schema.org/ItemListOrderDescending",
+        "numberOfItems": 8,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "Feynman",
+              "applicationCategory": "EducationalApplication",
+              "url": "https://www.999gabriel.me/#/projects/feynman",
+              "codeRepository": "https://github.com/999Gabriel/Feynman",
+              "description": "A local-first adaptive AI learning agent with persistent memory. Keeps a structured model of the learner — strengths, weak spots, learning style — and personalizes every session. Multi-agent architecture, runs entirely on the user's machine. Diplomarbeit at HTL Anichstraße.",
+              "author": { "@id": "https://www.999gabriel.me/#person" },
+              "programmingLanguage": ["Python", "JavaScript"],
+              "operatingSystem": "Cross-platform"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "fl0w",
+              "applicationCategory": "DeveloperApplication",
+              "url": "https://www.999gabriel.me/#/projects/fl0w",
+              "codeRepository": "https://github.com/999Gabriel/fl0w",
+              "description": "Single-page code-analysis tool. Paste a source file and it draws an interactive graph of function calls and data/state flow. Runs entirely in the browser.",
+              "author": { "@id": "https://www.999gabriel.me/#person" },
+              "programmingLanguage": ["TypeScript", "JavaScript"],
+              "operatingSystem": "Web browser"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "WinWare",
+              "url": "https://www.999gabriel.me/#/projects/winware",
+              "description": "Development studio building custom software, automation pipelines and IoT solutions for clients across Austria.",
+              "author": { "@id": "https://www.999gabriel.me/#person" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "CerveLingua",
+              "applicationCategory": "DeveloperApplication",
+              "url": "https://www.999gabriel.me/#/projects/cervelingua",
+              "codeRepository": "https://github.com/999Gabriel/CerveLingua",
+              "description": "AI-driven platform for emotion recognition and linguistic analysis — detects and classifies emotional states from text and speech in real time.",
+              "author": { "@id": "https://www.999gabriel.me/#person" },
+              "programmingLanguage": ["Python"],
+              "operatingSystem": "Cross-platform"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "CULINA",
+              "url": "https://www.999gabriel.me/#/projects/culina",
+              "description": "Junior Company co-founded at HTL Anichstraße. Modular restaurant-grade kitchen systems for home use.",
+              "author": { "@id": "https://www.999gabriel.me/#person" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "ORBIS",
+              "applicationCategory": "BrowserApplication",
+              "url": "https://www.999gabriel.me/#/projects/orbis",
+              "codeRepository": "https://github.com/999Gabriel/ORBIS",
+              "description": "Interactive 3D globe visualizing live world data — news, flights, energy prices and weather — layered over the planet, with per-country detail panels.",
+              "author": { "@id": "https://www.999gabriel.me/#person" },
+              "programmingLanguage": ["JavaScript"],
+              "operatingSystem": "Web browser"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "ÖBB Display",
+              "applicationCategory": "UtilitiesApplication",
+              "url": "https://www.999gabriel.me/#/projects/oebb-display",
+              "codeRepository": "https://github.com/999Gabriel/oebb-display",
+              "description": "Real-time Austrian railway departure board. Pulls live ÖBB data and renders it on a station-style board built into a physical unit.",
+              "author": { "@id": "https://www.999gabriel.me/#person" },
+              "programmingLanguage": ["JavaScript"],
+              "operatingSystem": "Cross-platform"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "Brokey",
+              "applicationCategory": "TravelApplication",
+              "url": "https://www.999gabriel.me/#/projects/brokey",
+              "codeRepository": "https://github.com/999Gabriel/Brokey_App",
+              "description": ".NET MAUI app for travel groups. Log shared trip expenses and it settles who owes whom.",
+              "author": { "@id": "https://www.999gabriel.me/#person" },
+              "programmingLanguage": ["C#"],
+              "operatingSystem": "Android, iOS"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div id="root"></div>
+
+  <!-- Plain-text fallback for crawlers and agents that do not execute
+       JavaScript. Never rendered for visitors with JS enabled; mirrors the
+       content of the app and of /agents.txt. -->
+  <noscript>
+    <h1>Gabriel Winkler</h1>
+    <p>Engineering student &amp; future engineer — Wattens, Austria.</p>
+    <p>
+      Computer science student at HTL Anichstraße in Innsbruck (Wirtschaftsingenieure –
+      Betriebsinformatik, Matura 2027). I build software across AI, full-stack and hardware —
+      and I care as much about aesthetics, branding and how a thing feels as about what runs
+      underneath. Currently building Feynman, an adaptive AI learning agent, as my Diplomarbeit.
+      Open to software engineering internships and entry-level roles.
+    </p>
+    <h2>Experience</h2>
+    <ul>
+      <li>ATSP GmbH, Innsbruck — Software Development Intern, SAP / ABAP (Innovation), 2026</li>
+      <li>Raitec GmbH, Innsbruck — IT Intern, 2024 and 2025</li>
+      <li>WinWare — Founder, 2024 – present (on hold during school)</li>
+      <li>CULINA Junior Company — Co-founder, 2025 – 2026</li>
+    </ul>
+    <h2>Selected work</h2>
+    <ul>
+      <li>Feynman — adaptive AI learning agent (Python, FastAPI, Anthropic Claude API)</li>
+      <li>fl0w — in-browser code-flow analysis tool (React, TypeScript)</li>
+      <li>CerveLingua — real-time emotion and language analysis (Python, TensorFlow)</li>
+      <li>ORBIS — live 3D data globe (Three.js, WebGL)</li>
+      <li>ÖBB Display — live Austrian railway departure board</li>
+      <li>Brokey — trip expense splitting app (.NET MAUI, C#)</li>
+    </ul>
+    <h2>Certifications</h2>
+    <ul>
+      <li>Claude Code in Action — Anthropic</li>
+      <li>Claude 101 — Anthropic</li>
+      <li>AI Fluency: Framework &amp; Foundations — Anthropic</li>
+      <li>IPMA Level D, Certified Project Management Associate — pma Austria</li>
+    </ul>
+    <h2>Contact</h2>
+    <ul>
+      <li><a href="mailto:999gabriel.winkler@gmail.com">999gabriel.winkler@gmail.com</a></li>
+      <li><a href="https://github.com/999Gabriel">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/gabriel-winkler-44b705294/">LinkedIn</a></li>
+      <li><a href="https://x.com/The999GABRIEL">X</a></li>
+      <li><a href="/Gabriel_Winkler_Resume.pdf">Resume (PDF)</a></li>
+      <li><a href="/agents.txt">agents.txt</a></li>
+    </ul>
+  </noscript>
+
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
